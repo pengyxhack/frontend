@@ -5,22 +5,19 @@ MAINTAINER ertuil 936664530@qq.com
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 RUN npm config set registry https://registry.npm.taobao.org
-RUN npm install -g @angular/cli \
-    && npm install -g typescript \
-    && npm install -g sass 
+RUN npm install -g cnpm --registry=https://registry.npm.taobao.org
+RUN cnpm install -g @angular/cli \
+    && cnpm install -g typescript \
+    && cnpm install -g sass 
 
-RUN apk add git
-RUN ng new igem
+RUN cnpm install -g jquery \
+    && cnpm install -g sortablejs && cnpm install -g angular-sortablejs \
+    && cnpm install -g bootstrap
 
-WORKDIR igem
-RUN npm install --save jquery \
-    && npm install --save sortablejs && npm install --save angular-sortablejs \
-    && npm install --save bootstrap
-RUN ng add ng-zorro-antd
-
+RUN ng set --global packageManager=cnpm
 EXPOSE 4200
 
-CMD ng serve --open 
+ADD ./install.sh /usr/src/app/install.sh
+RUN chmod +x install.sh
 
-
-
+CMD ng serve --open --host 0.0.0.0
