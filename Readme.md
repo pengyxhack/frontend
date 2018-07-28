@@ -12,12 +12,12 @@ docker是一套非常轻量级的容器环境。可以很方便的部署各种�
 ## 环境
 下面列举docker镜像中的主要环境：
 
-|软件包|版本|
-|node.js|10.6.0|
-|npm|6.1.0|
-|cnpm|6.0.0|
-|typescript|2.7.2|
-|angular|6.1.1|
+| 软件包 | 版本 |
+| node.js | 10.6.0 |
+| npm | 6.1.0 |
+| cnpm | 6.0.0 |
+| typescript | 2.7.2 |
+| angular | 6.1.1 |
 
 另有angular-sortable.js、jquery、bootstrap、ng-zorro、sass等插件库。
 由于已经安装了阿里爸爸的angularUI库 ng-zorro，所以angular和默认样式有所区别。
@@ -40,6 +40,7 @@ docker pull ertuil/igem:v4
 ##### 方法二：使用github下载Dockfile自行创建镜像
 github地址：
 ```
+https://github.com/andytt/frontend
 ```
 下载后运行
 ```
