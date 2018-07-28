@@ -119,3 +119,9 @@ docker exec -it igem-dev ng set --global packageManager=npm
 如果真的需要扩展安装其他软件包的话可以有一下两种方式：
 1. 最好联系本渣更新docker 的镜像
 2. 使用npm install --save 局部安装，千万不要使用npm install -g 
+
+## 后续功能
+1. 自动部署
+2. 单元检测
+3. 自动生成包含dist的生产环境镜像
+
