@@ -111,8 +111,8 @@ docker exec -it igem-dev ng g c xxx # docker命令方法
 由于国内的种种限制，这个镜像配置的 npm 软件源修改成为淘宝的软件源镜像地址。同时cnpm（国内npm命令）也使用淘宝的镜像源。甚至 ng 也默认配置使用cpm 。所以国外访问速度有待考证。因此可以多执行一下两句指令恢复镜像为默认镜像
 
 ```
-npm config delete registry
-ng set --global packageManager=npm
+docker exec -it igem-dev npm config delete registry
+docker exec -it igem-dev ng set --global packageManager=npm
 ```
 
 ### 关于安装软件包
