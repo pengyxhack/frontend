@@ -97,7 +97,7 @@ ng g c xxx
 这时候可以使用一下命令：
 ```
 docker exec -it igem-dev ng g c xxx
-``
+```
 
 为了简化命令，在igem-run.sh脚本中提供了对ng命令的支持，比如：
 ```
