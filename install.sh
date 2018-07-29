@@ -4,7 +4,7 @@ cd /usr/src/app
 ng new igem
 cd igem
 ls
-ng add ng-zorro-antd 
+ng add ng-zorro-antd  --i18n=en_US
 ng update @angular/cli
 ng serve --open --host 0.0.0.0
 

@@ -1,6 +1,6 @@
 FROM node:10.6-alpine
 
-MAINTAINER ertuil 936664530@qq.com
+LABEL author='ertuil' email='936664530@qq.com'
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app

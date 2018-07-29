@@ -33,7 +33,7 @@ windows：自行解决
 
 ##### 方法一：
 ```
-docker pull ertuil/igem:v4
+docker pull ertuil/igem
 ```
 即可获得当前版本（v4）的镜像包
 
@@ -46,7 +46,7 @@ https://github.com/andytt/frontend
 ```
 docker build -t igem .
 ```
-即可在本地构建名为igem的镜像。
+即可在本地构建名为ertuil/igem的镜像。
 
 #### 运行镜像
 同样是从上述github地址可以pull到本地的文件中有一个igem-run.sh，是我写的一个方便使用docker的脚本。
@@ -85,6 +85,31 @@ docker start igem-dev
 暂停的话使用一下命令即可
 ```
 docker stop igem-dev
+```
+
+##### 进入docker镜像内部：
+使用命令
+```
+igem-run.sh login
+```
+就会登录到docker镜像内部。并且初始化目录就是工作目录，之后就可以在该目录下干任何你想干的事情了。
+此时angular服务器不会默认开启！需要手动输入命令：
+```
+ng serve --open --host 0.0.0.0 
+```
+--host 0.0.0.0 是为了开放所有ip访问权限，使得容器外部也能能通过4200端口访问。
+
+退出使用
+```
+exit
+```
+
+提示，我选用的linux版本是alpine，一个体积很小的的适合当作容器的linux发行版。安装包相关命令为：
+```
+apk add xxx
+apk del xxx
+apk search xxx
+apk update xxx
 ```
 
 ##### 关于执行命令
