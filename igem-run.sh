@@ -12,14 +12,14 @@ if [ $# -ge 1 ]; then
             -p 4200:4200 \
             -w /usr/src/app \
             -v $workdir:/usr/src/app/igem \
-            -it ertuil/igem:v4 /bin/sh install.sh
+            -it ertuil/igem /bin/sh install.sh
     elif [ "$1" == 'login' ]; then
         docker stop $docker_name  && docker rm $docker_name 
         docker run --name $docker_name  \
             -p 4200:4200 \
             -w /usr/src/app/igem \
             -v $workdir:/usr/src/app/igem \
-            -it ertuil/igem:v4 /bin/sh
+            -it ertuil/igem /bin/sh
     else
         docker exec -it $docker_name ng $@
     fi
@@ -29,5 +29,5 @@ else
         -p 4200:4200 \
         -w /usr/src/app/igem \
         -v $workdir:/usr/src/app/igem \
-        -it ertuil/igem:v4 
+        -it ertuil/igem 
 fi
