@@ -1,5 +1,6 @@
 #!/bin/bash
 workdir=/Users/ertuil/workspace/igem/app-test1
+image=igem-dev
 
 function isexist()
 {
@@ -28,25 +29,25 @@ fi
 if [ $# -ge 1 ]; then
     if [ "$1" == 'init' ]; then
         rm -rf $workdir
-        docker stop igem-dev && docker rm igem-dev 
-        docker run --name igem-dev \
+        docker stop $image && docker rm $image 
+        docker run --name $image \
             -p 4200:4200 \
             -w /usr/src/app \
             -v $workdir:/usr/src/app/igem \
             -it ertuil/igem:v4 /bin/sh install.sh
     elif [ "$1" == 'login' ]; then
-        docker stop igem-dev && docker rm igem-dev 
-        docker run --name igem-dev \
+        docker stop $image && docker rm $image 
+        docker run --name $image \
             -p 4200:4200 \
             -w /usr/src/app/igem \
             -v $workdir:/usr/src/app/igem \
             -it ertuil/igem:v4 /bin/sh
     else
-        docker exec -it igem-dev ng $@
+        docker exec -it $image ng $@
     fi
 else
-    docker stop igem-dev && docker rm igem-dev 
-    docker run --name igem-dev \
+    docker stop $image && docker rm $image 
+    docker run --name $image \
         -p 4200:4200 \
         -w /usr/src/app/igem \
         -v $workdir:/usr/src/app/igem \
